@@ -10,4 +10,17 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="valnavhomefragment">Inicio</string>
+
+    <string name="valetemail">Ingrese su Email</string>
+    <string name="valetpassword">Ingrese Password</string>
+    <string name="valbtnlogin">Logout</string>
+    <string name="valchkguardardatos">¿Guardar Datos?</string>
+    <string name="valbtnregistrarme">Registrate</string>
+
+
+
+
 </resources>
