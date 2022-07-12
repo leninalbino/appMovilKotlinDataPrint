@@ -3,10 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/navHomeFragment">
+    app:startDestination="@id/HomeFragment">
     <fragment
-        android:id="@+id/navHomeFragment"
+        android:id="@+id/HomeFragment"
         android:name="idat.dadmi.appmovilkotlindataprint.fragment.HomeFragment"
-        android:label="@string/valnavhomefragment"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/CategoriaFragment"
+        android:name="idat.dadmi.appmovilkotlindataprint.fragment.CategoriaFragment"
+        tools:layout="@layout/fragment_categoria" />
 </navigation>

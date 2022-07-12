@@ -1,17 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
-
     <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/navHomeFragment"
-            android:icon="@mipmap/home"
-            android:title="@string/valnavhomefragment" />
-        <item
-            android:id="@+id/navLogin"
-            android:icon="@mipmap/home"
-            android:title="Login" />
-
+        <item android:title="principal">
+            <menu>
+             <item
+                 android:id="@+id/HomeFragment"
+                 android:icon="@drawable/ic_home"
+                 android:title="@string/valnavhomefragment" />
+             <item
+                 android:id="@+id/CategoriaFragment"
+                 android:title="Categoria"/>
+             <item
+                 android:icon="@drawable/ic_productos"
+                  android:id="@+id/producto_fragment"
+                  android:title="productos"/>
+             <item
+                 android:icon="@drawable/ic_favorito"
+                 android:id="@+id/carrito_fragmente"
+                android:title="favoritos"/>
+            </menu>
+        </item>
     </group>
+    <group android:checkableBehavior="single">
+        <item  android:title="ubicacion">
+            <menu>
+                <item
+                    android:icon="@drawable/ic_map"
+                    android:id="@+id/nav_ubicacion"
+                    android:title="Localidad">
+                </item>
+                <item
+                    android:id="@+id/nav_quienSomos"
+                    android:title="Quienes somos?">
+                </item>
+            </menu>
+        </item>
+    </group>
+
 </menu>
