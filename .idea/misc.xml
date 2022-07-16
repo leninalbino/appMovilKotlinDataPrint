@@ -4,6 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/5To ciclo/Nueva carpeta/app/src/main/res/layout/content_main.xml" value="0.19479166666666667" />
+        <entry key="..\:/Proyectos/appMovilKotlinDataPrint/app/src/main/res/drawable/ic_productos.xml" value="0.163" />
+        <entry key="..\:/Proyectos/appMovilKotlinDataPrint/app/src/main/res/layout/activity_carrito.xml" value="0.5" />
+        <entry key="..\:/Proyectos/appMovilKotlinDataPrint/app/src/main/res/layout/activity_login.xml" value="0.18229166666666666" />
+        <entry key="..\:/Proyectos/appMovilKotlinDataPrint/app/src/main/res/layout/activity_main.xml" value="0.18229166666666666" />
+        <entry key="..\:/Proyectos/appMovilKotlinDataPrint/app/src/main/res/layout/fragment_categoria.xml" value="0.18229166666666666" />
+        <entry key="..\:/Proyectos/appMovilKotlinDataPrint/app/src/main/res/layout/fragment_home.xml" value="0.18229166666666666" />
+        <entry key="..\:/Proyectos/appMovilKotlinDataPrint/app/src/main/res/menu/activity_main_drawer.xml" value="0.33" />
+        <entry key="..\:/Proyectos/appMovilKotlinDataPrint/app/src/main/res/menu/main.xml" value="0.22" />
       </map>
     </option>
   </component>
