@@ -11,4 +11,7 @@
     <color name="gris">#D5DBDB </color>
 
     <color name="color_gris_500">#606060</color>
+    <color name="snackbarerror">#EF0000</color>
+    <color name="snackbarexito">#165497</color>
+    <color name="snackbaradvertencia">#165497</color>
 </resources>
