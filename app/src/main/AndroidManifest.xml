@@ -16,9 +16,12 @@
         android:theme="@style/Theme.AppMovilKotlinDataPrint"
         tools:targetApi="31">
         <activity
+            android:name=".RegistroActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.CarritoActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppMovilKotlinDataPrint.NoActionBar"/>
+            android:theme="@style/Theme.AppMovilKotlinDataPrint.NoActionBar" />
         <activity
             android:name=".view.SplashActivity"
             android:exported="true"
@@ -37,7 +40,7 @@
             android:name=".view.MainActivity"
             android:exported="false"
             android:label="@string/app_name"
-            android:theme="@style/Theme.AppMovilKotlinDataPrint.NoActionBar"></activity>
+            android:theme="@style/Theme.AppMovilKotlinDataPrint.NoActionBar" />
     </application>
 
 </manifest>
