@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import idat.dadmi.appmovilkotlindataprint.R
-import idat.dadmi.appmovilkotlindataprint.fragment.HomeFragment
 
 class SplashActivity : AppCompatActivity() {
     private val SPLASH_TIME :Long =2500
