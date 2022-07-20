@@ -19,6 +19,7 @@
     <string name="valbtnlogin">Logout</string>
     <string name="valchkguardardatos">¿Guardar Datos?</string>
     <string name="valbtnregistrarme">Registrate</string>
+    <string name="valnavmapsfragment">Mapa</string>
 
 
 </resources>
