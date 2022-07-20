@@ -29,8 +29,8 @@
             <menu>
                 <item
                     android:icon="@drawable/ic_map"
-                    android:id="@+id/nav_ubicacion"
-                    android:title="Localidad">
+                    android:id="@+id/navMapsFragment"
+                    android:title="Ubicación">
                 </item>
                 <item
                     android:id="@+id/nav_quienSomos"
