@@ -6,10 +6,10 @@
     app:startDestination="@id/HomeFragment">
     <fragment
         android:id="@+id/HomeFragment"
-        android:name="idat.dadmi.appmovilkotlindataprint.fragment.HomeFragment"
+        android:name="idat.dadmi.appmovilkotlindataprint.view.fragment.HomeFragment"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/CategoriaFragment"
-        android:name="idat.dadmi.appmovilkotlindataprint.fragment.CategoriaFragment"
+        android:name="idat.dadmi.appmovilkotlindataprint.view.fragment.CategoriaFragment"
         tools:layout="@layout/fragment_categoria" />
 </navigation>

@@ -1,4 +1,4 @@
-package idat.dadmi.appmovilkotlindataprint.fragment
+package idat.dadmi.appmovilkotlindataprint.view.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import idat.dadmi.appmovilkotlindataprint.R
 import idat.dadmi.appmovilkotlindataprint.databinding.FragmentHomeBinding
 import idat.dadmi.appmovilkotlindataprint.view.adapter.ProductoAdapter
 import idat.dadmi.appmovilkotlindataprint.viewmodel.ProductosViewModel

@@ -1,9 +1,200 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
     tools:context=".view.RegistroActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tvemailusuario"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:text="@string/tvtituloregistro"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+                        //Nombre del Usuario
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/textInputLayout3"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_width="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvemailusuario"
+            app:startIconDrawable="@drawable/ic_baseline_assignment_ind_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:hint="@string/valetnomusuario"
+                android:id="@+id/etnomusuario"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:maxLength="25" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+                    // Apellido del Usuario
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/textInputLayout4"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_width="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
+            app:startIconDrawable="@drawable/ic_baseline_assignment_ind_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:hint="@string/valetapeusuario"
+                android:id="@+id/etapeusuario"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:maxLength="25" />
+        </com.google.android.material.textfield.TextInputLayout>
+                    //---------------------------
+        //Usuario DNI
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/textInputLayout6"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_width="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout4"
+            app:startIconDrawable="@drawable/ic_baseline_person_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:hint="@string/valetdni"
+                android:id="@+id/etusudni"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:maxLength="8" />
+        </com.google.android.material.textfield.TextInputLayout>
+                    //---------------------------
+
+                        // Numero de Celular
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/textInputLayout7"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_width="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout6"
+            app:startIconDrawable="@drawable/ic_baseline_phone_iphone_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:hint="@string/valetcelusuario"
+                android:id="@+id/etcelusuario"
+                android:inputType="number"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:maxLength="10" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        //Email del Usuario
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/textInputLayout9"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_width="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout7"
+            app:startIconDrawable="@drawable/ic_baseline_alternate_email_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:hint="@string/valetemailusuario"
+                android:id="@+id/etemailusuario"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:maxLength="25" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+                        // Password Usuario
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/textInputLayout11"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_width="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout9"
+            app:startIconDrawable="@drawable/ic_baseline_vpn_key_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:hint="@string/valetpassreg"
+                android:id="@+id/etpassreg"
+                android:inputType="textPassword"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:maxLength="50" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+                        //Direccion Usuario
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/textInputLayout12"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_width="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout11"
+            app:startIconDrawable="@drawable/ic_baseline_directions_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:hint="@string/valetdireccion"
+                android:id="@+id/etdireccion"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:maxLength="50" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnregistrarme"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_width="0dp"
+            android:text="@string/valbtnregistro"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout12" />
+
+        <Button
+            style="?attr/materialButtonOutlinedStyle"
+            android:id="@+id/btnirlogin"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:text="@string/valbtnirlogin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnregistrarme" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_height="62dp"
+            android:layout_width="82dp"
+            android:src="@drawable/ic_baseline_account_circle_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

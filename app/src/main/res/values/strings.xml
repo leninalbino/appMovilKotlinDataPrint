@@ -21,4 +21,19 @@
     <string name="valbtnregistrarme">Registrate</string>
 
 
+    <string name="tvtituloregistro">REGISTRARME</string>
+    <string name="valetnomusuario">Ingrese su nombre</string>
+    <string name="valetapeusuario">Ingrese su apellido</string>
+    <string name="valetemailusuario">Ingrese su email</string>
+    <string name="valetcelusuario">Ingrese su celular</string>
+    <string name="valetdni">Ingrese su dni</string>
+    <string name="valetpassreg">Ingrese su password</string>
+    <string name="valetrepassreg">ingresar su Direccion</string>
+    <string name="valetdireccion">ingresar su direccion</string>
+    <string name="valbtnirlogin">VOLVER A LOGIN</string>
+
+    <string name="valbtnregvoluntario">REGISTRAR</string>
+    <string name="valbtnregistro">REGISTRAR USUARIO</string>
+    <string name="valcodigoverificador">Ingrese su Codigo Verificador</string>
+
 </resources>
