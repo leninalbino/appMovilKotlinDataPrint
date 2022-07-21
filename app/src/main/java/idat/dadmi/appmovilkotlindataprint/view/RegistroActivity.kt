@@ -1,18 +1,20 @@
 package idat.dadmi.appmovilkotlindataprint.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Patterns
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import idat.dadmi.appmovilkotlindataprint.R
-import idat.dadmi.appmovilkotlindataprint.databinding.ActivityLoginBinding
 import idat.dadmi.appmovilkotlindataprint.databinding.ActivityRegistroBinding
 import idat.dadmi.appmovilkotlindataprint.retrofit.response.ResponseRegistro
 import idat.dadmi.appmovilkotlindataprint.utilitarios.AppMensaje
 import idat.dadmi.appmovilkotlindataprint.utilitarios.TipoMensaje
 import idat.dadmi.appmovilkotlindataprint.viewmodel.AuthViewModel
+import org.intellij.lang.annotations.Pattern
+
 
 class RegistroActivity : AppCompatActivity() , View.OnClickListener{
     private lateinit var binding: ActivityRegistroBinding
@@ -59,7 +61,7 @@ class RegistroActivity : AppCompatActivity() , View.OnClickListener{
     private fun registrarUsuario() {
         binding.btnregistrarme.isEnabled = false
         binding.btnirlogin.isEnabled = false
-        if(validadFormulario()){
+        if(validadFormulario() ){
             authViewModel.registrarUsuario(
                 binding.etnomusuario.text.toString(),
                 binding.etapeusuario.text.toString(),
@@ -119,7 +121,7 @@ class RegistroActivity : AppCompatActivity() , View.OnClickListener{
             binding.etdireccion.text.toString().trim().isEmpty() ->{
                 binding.etdireccion.isFocusableInTouchMode = true
                 binding.etdireccion.requestFocus()
-                mensaje = "Direccion invalido"
+                mensaje = "Ingrese su direccion"
                 respuesta = false
 
             }

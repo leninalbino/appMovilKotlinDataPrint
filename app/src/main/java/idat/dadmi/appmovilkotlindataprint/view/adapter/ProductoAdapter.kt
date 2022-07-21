@@ -10,7 +10,7 @@ import idat.dadmi.appmovilkotlindataprint.retrofit.response.ResponseProductos
 
 
 class ProductoAdapter(private var lstproducto: List<ResponseProductos>)
-:RecyclerView.Adapter<ProductoAdapter.ViewHolder>(){
+                        :RecyclerView.Adapter<ProductoAdapter.ViewHolder>(){
 
     inner class ViewHolder(val binding: ItemProductosBinding):
         RecyclerView.ViewHolder(binding.root)
@@ -31,8 +31,8 @@ class ProductoAdapter(private var lstproducto: List<ResponseProductos>)
                 //binding.tvcantidad.text  = cantidCaract
                 binding.tvprecio.text  = caracteristicas.forEach { car-> car.precioCaract }.toString()
                 Glide.with(holder.itemView.context)
-                   // .load(urlimagen)
-                    //.into(binding.ivproducto)
+                   .load("")
+                    .into(binding.ivproducto)
             }
         }
 

@@ -15,6 +15,5 @@
     <fragment
         android:id="@+id/navMapsFragment"
         android:name="idat.dadmi.appmovilkotlindataprint.fragment.MapsFragment"
-        android:label="@string/valnavmapsfragment"
         tools:layout="@layout/fragment_maps" />
 </navigation>

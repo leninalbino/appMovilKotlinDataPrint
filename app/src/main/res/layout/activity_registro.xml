@@ -63,8 +63,8 @@
                 android:layout_width="match_parent"
                 android:maxLength="25" />
         </com.google.android.material.textfield.TextInputLayout>
-                    //---------------------------
-        //Usuario DNI
+
+                //Usuario DNI
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:id="@+id/textInputLayout6"
@@ -81,6 +81,7 @@
                 android:id="@+id/etusudni"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
+                android:inputType="number"
                 android:maxLength="8" />
         </com.google.android.material.textfield.TextInputLayout>
                     //---------------------------
