@@ -1,4 +1,4 @@
-package idat.dadmi.appmovilkotlindataprint.fragment
+package idat.dadmi.appmovilkotlindataprint.view.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

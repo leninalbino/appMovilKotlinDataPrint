@@ -7,8 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
     <color name="red">#dd2c00</color>
     <color name="gris">#D5DBDB </color>
-
-    <color name="color_gris_500">#606060</color>
+    <!--<color name="color_secundario">#733DF1</color>
+    <color name="color_secundario_variant">#510DEF</color>-->
+     <color name="color_gris_500">#606060</color>
+    <color name="color_gris">#DFDFDF</color>
+    <color name="snackbarerror">#EF0000</color>
+    <color name="snackbarexito">#165497</color>
+    <color name="snackbaradvertencia">#165497</color>
 </resources>
