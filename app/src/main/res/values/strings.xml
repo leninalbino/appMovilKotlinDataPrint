@@ -36,6 +36,7 @@
     <string name="valbtnregvoluntario">REGISTRAR</string>
     <string name="valbtnregistro">REGISTRAR USUARIO</string>
     <string name="valcodigoverificador">Ingrese su Codigo Verificador</string>
+    <string name="text_vacio"></string>
 
     <string name="valbtnValidarcodigo">VALIDAR CODIGO</string>
 </resources>

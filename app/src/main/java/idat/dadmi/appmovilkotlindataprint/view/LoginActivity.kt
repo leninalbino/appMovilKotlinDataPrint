@@ -8,6 +8,7 @@ import android.widget.ImageView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import idat.dadmi.appmovilkotlindataprint.CaracterizticasActivity
 import idat.dadmi.appmovilkotlindataprint.R
 import idat.dadmi.appmovilkotlindataprint.databinding.ActivityLoginBinding
 import idat.dadmi.appmovilkotlindataprint.retrofit.response.ResponseLogin
@@ -26,7 +27,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
 
         val regresarHome=findViewById<ImageView>(R.id.regresar)
-        regresarHome.setOnClickListener{val intent =  Intent(this, MainActivity::class.java)
+        regresarHome.setOnClickListener{val intent =  Intent(this, CaracterizticasActivity::class.java)
             startActivity(intent)
         }
         authViewModel = ViewModelProvider(this)
