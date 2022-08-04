@@ -25,6 +25,7 @@ class HomeFragment : Fragment() {
         binding.rvproducto.layoutManager = LinearLayoutManager(
             requireActivity())
         productoviewModel = ViewModelProvider(requireActivity()).get(ProductosViewModel::class.java)
+        listarProductos()
         return binding.root
         //inflater.inflate(R.layout.fragment_home, container, false)
     }
@@ -34,4 +35,10 @@ class HomeFragment : Fragment() {
             binding.rvproducto.adapter=ProductoAdapter(it)
         })
     }
+
+
+
+
+
+
 }

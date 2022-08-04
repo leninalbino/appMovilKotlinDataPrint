@@ -17,7 +17,6 @@ class ProductoAdapter(private var lstproducto: List<ResponseProductos>)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemProductosBinding
             .inflate(LayoutInflater.from(parent.context), parent, false)
-
         return ViewHolder(binding)
     }
 
@@ -27,11 +26,13 @@ class ProductoAdapter(private var lstproducto: List<ResponseProductos>)
             with(lstproducto[position]){
 
                 binding.tvnomproducto.text = nombrePro
-                binding.tvstock.text  =caracteristicas.forEach { car-> car.cantidCaract }.toString()
+                binding.tvcategoria.text = categoria.nombreCate
+                //binding.tvstock.text  =caracteristicas.forEach { car-> car.cantidCaract }.toString()
                 //binding.tvcantidad.text  = cantidCaract
-                binding.tvprecio.text  = caracteristicas.forEach { car-> car.precioCaract }.toString()
+                //binding.tvprecio.text  = caracteristicas.forEach { car-> car.precioCaract }.toString()
+
                 Glide.with(holder.itemView.context)
-                   .load("")
+                   .load(imageProp)
                     .into(binding.ivproducto)
             }
         }
