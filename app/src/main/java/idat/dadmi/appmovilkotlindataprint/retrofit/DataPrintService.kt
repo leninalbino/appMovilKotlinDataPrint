@@ -14,7 +14,8 @@ interface DataPrintService {
 
     //@GET("/")
     //fun listarCategorias (): Call<List<ResponseCategoria>>
-
+    //@FormUrlEncoded
+    //@Headers("Acept:aplication/json")
     @POST("/rest/v1/usuarios/crearToken")
     fun login (@Body requestLogin: RequestLogin):Call<ResponseLogin>
 
@@ -23,5 +24,9 @@ interface DataPrintService {
 
     @PUT("/validarCodigoVerificacion/{codigo}")
     fun validarCodigoVerificacion(@Path(value = "codigo") codigo:String):Call<ResponseCodigoVerificacion>
+
+    //buscar producto por id para mostrar el detalle
+    @GET("/p/{id}")
+    fun findProductDetailById(@Path(value = "id") id:Int): Call<ResponseProductos>
 
 }

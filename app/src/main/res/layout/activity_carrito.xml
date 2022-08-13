@@ -15,7 +15,7 @@
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="16dp" />
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvcantidad"
         android:layout_width="115dp"
         android:layout_height="17dp"
         android:text="Carrito de Compra"

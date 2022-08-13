@@ -17,4 +17,8 @@
     <color name="snackbarerror">#EF0000</color>
     <color name="snackbarexito">#165497</color>
     <color name="snackbaradvertencia">#165497</color>
+
+    // color de fondo del detalle
+    <color name="colorFondoDetalle">#0AF6F6</color>
+    <color name="colorFondoDetalle2">#E7ECEC</color>
 </resources>

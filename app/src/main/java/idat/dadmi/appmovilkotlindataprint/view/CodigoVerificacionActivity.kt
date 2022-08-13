@@ -36,6 +36,7 @@ class CodigoVerificacionActivity : AppCompatActivity(), View.OnClickListener {
             setearControles()
             AppMensaje.enviarMensaje(binding.root,
             respuestaCodigo.mensaje,TipoMensaje.EXITO)
+
             startActivity(Intent(applicationContext,LoginActivity::class.java))
         }else{
             AppMensaje.enviarMensaje(binding.root,
