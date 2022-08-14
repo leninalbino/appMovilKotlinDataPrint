@@ -11,5 +11,4 @@ class ProductosViewModel:ViewModel() {
         return repository.listarProductos()
     }
 
-
 }

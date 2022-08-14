@@ -32,6 +32,10 @@ class AuthRepository {
         })
         return loginResponse
     }
+
+    fun saveAuthToekn(token:String){
+
+    }
     fun registrarUsuario(requestRegistro: RequestRegistro)
     :MutableLiveData<ResponseRegistro>{
         val call:Call<ResponseRegistro> = DataPrintCliente

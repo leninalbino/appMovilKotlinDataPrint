@@ -16,7 +16,7 @@
 
     <string name="valetemail">Ingrese su Email</string>
     <string name="valetpassword">Ingrese Password</string>
-    <string name="valbtnlogin">Logout</string>
+    <string name="valbtnlogin">Iniciar Sesión</string>
     <string name="valchkguardardatos">¿Guardar Datos?</string>
     <string name="valbtnregistrarme">Registrate</string>
     <string name="valnavmapsfragment">Mapa</string>
@@ -36,6 +36,8 @@
     <string name="valbtnregvoluntario">REGISTRAR</string>
     <string name="valbtnregistro">REGISTRAR USUARIO</string>
     <string name="valcodigoverificador">Ingrese su Codigo Verificador</string>
+    <string name="text_vacio"></string>
 
     <string name="valbtnValidarcodigo">VALIDAR CODIGO</string>
+    <string name="valbtnaddcar">Add Cart</string>
 </resources>

@@ -123,8 +123,7 @@
                 android:hint="@string/valetemailusuario"
                 android:id="@+id/etemailusuario"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:maxLength="25" />
+                android:layout_width="match_parent"/>
         </com.google.android.material.textfield.TextInputLayout>
 
                         // Password Usuario
@@ -164,8 +163,7 @@
                 android:hint="@string/valetdireccion"
                 android:id="@+id/etdireccion"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:maxLength="50" />
+                android:layout_width="match_parent"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
