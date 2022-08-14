@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.CheckBox
 import android.widget.ImageView
+import androidx.core.util.PatternsCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -142,10 +143,37 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     private fun autenticarUsuario() {
         binding.btnlogin.isEnabled = false
         binding.btnregistrar.isEnabled = false
-
         var okLogin = true
 
-        if(binding.etusuario.text.toString().trim().isEmpty()){
+        var usuario = binding.etusuario.text.toString()
+        var password =binding.etpassword.text.toString()
+     if(usuario.trim().isEmpty()){
+         binding.etusuario.isFocusableInTouchMode = true
+         binding.etusuario.requestFocus()
+         okLogin= false
+     }
+      else if( !PatternsCompat.EMAIL_ADDRESS.matcher(usuario).matches()) {
+          binding.etusuario.isFocusableInTouchMode = true
+          binding.etusuario.requestFocus()
+          okLogin= false
+      }
+     else if (password.trim().isEmpty()){
+         binding.etusuario.isFocusableInTouchMode = true
+         binding.etusuario.requestFocus()
+         okLogin= false
+     }
+    if(okLogin ){
+            authViewModel.autenticarUsuario(binding.etusuario.text.toString(),
+                binding.etpassword.text.toString())
+       /* AppMensaje.enviarMensaje(binding.root,
+            "BienVenido" + usuario, TipoMensaje.EXITO)*/
+        }else{
+
+        binding.btnlogin.isEnabled = true
+            AppMensaje.enviarMensaje(binding.root,
+                "Usuario o Password Incorrecto", TipoMensaje.ERROR)
+        }
+     /*   if(binding.etusuario.text.toString().trim().isEmpty()){
             binding.etusuario.isFocusableInTouchMode = true
             binding.etusuario.requestFocus()
             okLogin= false
@@ -161,7 +189,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             binding.btnlogin.isEnabled = true
             AppMensaje.enviarMensaje(binding.root,
                                     "Usuario o Password Incorrecto", TipoMensaje.ERROR)
-        }
+        }*/
     }
 
 

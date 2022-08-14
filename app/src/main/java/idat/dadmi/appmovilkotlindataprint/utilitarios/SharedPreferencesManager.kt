@@ -15,6 +15,8 @@ class SharedPreferencesManager() {
     fun setSomeBooleanValue(nombre:String, valor:Boolean){
         val editor = getSharedPreferences().edit()
         editor.putBoolean(nombre,valor)
+        editor.commit()
+
     }
     fun getSomeBooleanValue(nombre: String):Boolean{
         return getSharedPreferences().getBoolean(nombre,false)
