@@ -37,7 +37,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBxJ2P5eIKjlZaM8eHxMSAi_nM-_mu38YY" /> <!-- android:value="AIzaSyDPIRTiqYd5WTWaRcfukcj6C9O2SaSU2gE" /> -->
+            android:value="AIzaSyDPIRTiqYd5WTWaRcfukcj6C9O2SaSU2gE" /> <!-- android:value="AIzaSyDPIRTiqYd5WTWaRcfukcj6C9O2SaSU2gE" /> -->
         <activity
             android:name=".view.CodigoVerificacionActivity"
             android:exported="false" />

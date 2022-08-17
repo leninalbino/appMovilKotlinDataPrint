@@ -45,5 +45,5 @@
 
     //total de carrito
     <string name="valtvsubtotal">TOTAL: </string>
-    <string name="valbtnpagar">PAGAR: </string>
+    <string name="valbtncomprar">COMPRAR </string>
 </resources>
