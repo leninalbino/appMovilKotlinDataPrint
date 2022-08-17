@@ -3,9 +3,7 @@ package idat.dadmi.appmovilkotlindataprint.view.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import androidx.core.os.bundleOf
-import androidx.navigation.NavDirections
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -15,8 +13,6 @@ import idat.dadmi.appmovilkotlindataprint.retrofit.model.Caracteristica
 import idat.dadmi.appmovilkotlindataprint.retrofit.model.Categoria
 import idat.dadmi.appmovilkotlindataprint.retrofit.model.Producto
 import idat.dadmi.appmovilkotlindataprint.retrofit.response.ResponseProductos
-import kotlinx.coroutines.flow.callbackFlow
-import java.util.*
 import kotlin.collections.ArrayList
 
 

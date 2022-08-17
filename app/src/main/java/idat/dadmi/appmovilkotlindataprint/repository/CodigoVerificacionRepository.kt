@@ -14,7 +14,7 @@ class CodigoVerificacionRepository {
     var responseCodigoVerificacion=MutableLiveData<ResponseCodigoVerificacion>()
 
     fun verificcarCodigo(codigo:String):MutableLiveData<ResponseCodigoVerificacion>{
-        val call: Call<ResponseCodigoVerificacion> = DataPrintCliente
+        val call: Call<ResponseCodigoVerificacion> = DataPrintCliente("")
             .retrofitService.validarCodigoVerificacion(codigo)
         call.enqueue(object :Callback<ResponseCodigoVerificacion>{
             override fun onResponse(
