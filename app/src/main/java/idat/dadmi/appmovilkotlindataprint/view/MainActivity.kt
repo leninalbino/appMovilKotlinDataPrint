@@ -4,8 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -16,14 +18,20 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import idat.dadmi.appmovilkotlindataprint.CaracterizticasActivity
 import idat.dadmi.appmovilkotlindataprint.R
 import idat.dadmi.appmovilkotlindataprint.databinding.ActivityMainBinding
+import idat.dadmi.appmovilkotlindataprint.utilitarios.Constantes
+import idat.dadmi.appmovilkotlindataprint.viewmodel.UsuarioViewModel
+import kotlin.math.sign
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+    private lateinit var usuarioViewModel: UsuarioViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +40,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.appBarMain.toolbar)
+
+        //inicializamos el ViewModel
+        usuarioViewModel = ViewModelProvider(this)
+                                .get(UsuarioViewModel::class.java)
+
+        //var token = Constantes().PREF_RECORDAR
+        //Toast.makeText(this@MainActivity, "Token es: " + token,Toast.LENGTH_LONG).show()
 
         /*binding.appBarMain.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -48,9 +63,25 @@ class MainActivity : AppCompatActivity() {
                 R.id.CategoriaFragment
             ), drawerLayout
         )
+
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        mostrarInformacionAuth()
     }
+
+    private fun mostrarInformacionAuth() {
+        val tvnomusuario : TextView = binding.navView.getHeaderView(0)
+            .findViewById(R.id.tvnombreusuario)
+        val tvemailusuario: TextView = binding.navView.getHeaderView(0)
+            .findViewById(R.id.tvemailuser)
+        usuarioViewModel.obtener().observe(this, Observer { usuario ->
+            usuario?.let {
+                tvnomusuario.setText(usuario.user)
+               tvemailusuario.setText(usuario.correo)
+            }
+        })
+    }
+
     //direccionar login y carrito
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -58,8 +89,19 @@ class MainActivity : AppCompatActivity() {
         return true
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+
+        val idItem=item.itemId
+
+
+        if (idItem == R.id.actio_logout){
+            startActivity(Intent(this,LoginActivity::class.java))
+            usuarioViewModel.eliminartodo()
+            finish()
+
+        }
         when(item.itemId){
-            R.id.login -> {
+            R.id.action_login -> {
                 startActivity(Intent(this,LoginActivity::class.java))
                 return true;
             }
@@ -71,6 +113,7 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
     //fin direccionar login y carrito
 
     override fun onSupportNavigateUp(): Boolean {

@@ -34,6 +34,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // <- (flechita) para regresar al home
         val regresarHome=findViewById<ImageView>(R.id.regresar)
         regresarHome.setOnClickListener{val intent =  Intent(this, MainActivity::class.java)
             startActivity(intent)
@@ -46,6 +47,8 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             .get(UsuarioViewModel::class.java)
 
         // validacion si los datos estan registrados en la bd en memoria
+        println("validar checkkkk"+ validarCheckRecordarDatos())
+        println("obtener Token "+ obtenerToken())
         if (validarCheckRecordarDatos()){
             binding.chkrecordar.isChecked = true
             binding.etusuario.isEnabled=false
@@ -65,6 +68,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             usuarioViewModel.eliminartodo()
         }
 
+        binding.chkrecordar.setOnClickListener(this)
         binding.btnregistrar.setOnClickListener(this)
         binding.btnlogin.setOnClickListener(this)
 
@@ -79,32 +83,40 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                         .getSomeBooleanValue(Constantes()
                             .PREF_RECORDAR)
     }
-    fun validarRecordarToken():String{
+    fun obtenerToken():String?{
         return SharedPreferencesManager()
-            .getSomeStringValue(Constantes().PREF_TOKEN)
+                    .getSomeStringValue(Constantes().PREF_TOKEN)
     }
+
     private fun obtenerDatosLogin(responseLogin: ResponseLogin) {
-        val usuario = binding.etusuario.text.toString()
-        if(responseLogin.user == usuario){
-            println("Userrr"+responseLogin.user)
-            println("token"+responseLogin.token)
+        val correo = binding.etusuario.text.toString()
+        if(responseLogin.correo == correo){
             val usuarioEntity = UsuarioEntity(
                 1,
                 responseLogin.token,
                 responseLogin.user,
-
-                binding.etpassword.text.toString()
+                binding.etpassword.text.toString(),
+                responseLogin.correo
             )
             if(validarCheckRecordarDatos()){
                 usuarioViewModel.actualizar(usuarioEntity)
+                //SharedPreferencesManager().setSomeStringValue(Constantes().PREF_TOKEN,usuarioEntity.token)
             }else{
                 usuarioViewModel.insertar(usuarioEntity)
+                //SharedPreferencesManager().setSomeStringValue(Constantes().PREF_TOKEN,usuarioEntity.token)
                 if (binding.chkrecordar.isChecked){
-                    SharedPreferencesManager().setSomeBooleanValue(Constantes().PREF_RECORDAR,true)
+                    SharedPreferencesManager()
+                        .setSomeBooleanValue(Constantes()
+                            .PREF_RECORDAR,true)
+
+                    //SharedPreferencesManager().setSomeStringValue(Constantes().PREF_TOKEN,usuarioEntity.token)
+
                 }
             }
+            SharedPreferencesManager().setSomeStringValue(Constantes().PREF_TOKEN,usuarioEntity.token)
             startActivity(Intent(applicationContext, MainActivity::class.java))
-            AppMensaje.enviarMensaje(binding.root, "Bienvenido Estimado Usuario: "+ usuario , TipoMensaje.EXITO)
+            AppMensaje.enviarMensaje(binding.root, "Bienvenido Estimado Usuario: "+ correo , TipoMensaje.EXITO)
+            finish()
         }else{
             AppMensaje.enviarMensaje(binding.root, "Usuario o Password Incorrecto", TipoMensaje.ERROR)
         }
@@ -126,7 +138,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             val checked = vista.isChecked
             if (!checked){
                 if (validarCheckRecordarDatos()){
-                    SharedPreferencesManager().deletePreference(Constantes().PREF_RECORDAR)
+                    SharedPreferencesManager()
+                        .deletePreference(Constantes()
+                            .PREF_RECORDAR)
                     usuarioViewModel.eliminartodo()
                     binding.etusuario.isEnabled=true
                     binding.etpassword.isEnabled=true

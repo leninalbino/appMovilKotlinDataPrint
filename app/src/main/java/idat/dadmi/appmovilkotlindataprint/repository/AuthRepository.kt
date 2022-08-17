@@ -8,6 +8,9 @@ import idat.dadmi.appmovilkotlindataprint.retrofit.request.RequestLogin
 import idat.dadmi.appmovilkotlindataprint.retrofit.request.RequestRegistro
 import idat.dadmi.appmovilkotlindataprint.retrofit.response.ResponseLogin
 import idat.dadmi.appmovilkotlindataprint.retrofit.response.ResponseRegistro
+import idat.dadmi.appmovilkotlindataprint.utilitarios.Constantes
+import idat.dadmi.appmovilkotlindataprint.utilitarios.Metodos
+import idat.dadmi.appmovilkotlindataprint.utilitarios.SharedPreferencesManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -18,7 +21,9 @@ class AuthRepository {
 
     fun autenticarUsuario(requestLogin: RequestLogin)
     :MutableLiveData<ResponseLogin>{
-        val call:Call<ResponseLogin> = DataPrintCliente
+        //println("token usuario "+obtenerToken())
+        val call:Call<ResponseLogin> = DataPrintCliente(Metodos.obtenerToken()!!)
+        //val call:Call<ResponseLogin> = DataPrintCliente()
             .retrofitService.login(requestLogin)
         call.enqueue(object : Callback<ResponseLogin>{
             override fun onResponse(call: Call<ResponseLogin>, response: Response<ResponseLogin>) {
@@ -33,12 +38,10 @@ class AuthRepository {
         return loginResponse
     }
 
-    fun saveAuthToekn(token:String){
 
-    }
     fun registrarUsuario(requestRegistro: RequestRegistro)
     :MutableLiveData<ResponseRegistro>{
-        val call:Call<ResponseRegistro> = DataPrintCliente
+        val call:Call<ResponseRegistro> = DataPrintCliente("")
             .retrofitService.registro(requestRegistro)
         call.enqueue(object :Callback<ResponseRegistro>{
             override fun onResponse(
