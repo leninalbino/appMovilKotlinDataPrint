@@ -24,8 +24,7 @@
     <fragment
         android:id="@+id/detalleProductoFragment"
         android:name="idat.dadmi.appmovilkotlindataprint.view.fragment.DetalleProductoFragment"
-        android:label="fragment_detalle_producto"
-        tools:layout="@layout/fragment_detalle_producto" >
+        tools:layout="@layout/fragment_detalle_producto">
         <argument
             android:name="Producto"
             app:argType="idat.dadmi.appmovilkotlindataprint.retrofit.model.Producto[]" />

@@ -9,9 +9,12 @@
     app:cardCornerRadius="3dp"
     app:cardElevation="4dp"
     app:cardUseCompatPadding="true">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="#F49999">
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/ivproducto"
             android:layout_width="97dp"
@@ -20,8 +23,8 @@
             android:layout_marginLeft="8dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/imgsplash"
-            />
+            tools:src="@drawable/imgsplash" />
+
         <TextView
             android:id="@+id/tvnomproducto"
             android:layout_width="wrap_content"
