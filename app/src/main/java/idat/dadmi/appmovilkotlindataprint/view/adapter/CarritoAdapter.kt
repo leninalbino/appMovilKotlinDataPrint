@@ -2,6 +2,7 @@ package idat.dadmi.appmovilkotlindataprint.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import idat.dadmi.appmovilkotlindataprint.databinding.ListItemCarritoBinding
@@ -37,7 +38,6 @@ class CarritoAdapter (private val clickCarritoItem:OnclickCarritoItem,
                 binding.tvnomproduct.text = caracteristica.producto.nombrePro
                 binding.tvcaravterisitca.text = caracteristica.descriCaract
                 binding.tvpreci.text = caracteristica.precioCaract.toString()
-                mCantidad=cantidad.toInt()
                 binding.etcanti.setText(cantidad.toString())
                 subtotal =cantidad * caracteristica.precioCaract
                 val roun = String.format("%.2f",subtotal)
@@ -49,20 +49,11 @@ class CarritoAdapter (private val clickCarritoItem:OnclickCarritoItem,
                 idCarrito = lstcarritoitem[position].idCarrito
             }
             holder.binding.btnactualizaritem.setOnClickListener{
-                var okCantidad=true
 
-                if(holder.binding.etcanti.toString().trim().isEmpty()){
-                    holder.binding.etcanti.isFocusableInTouchMode=true
-                    holder.binding.etcanti.requestFocus()
-                    okCantidad= false
-                }
-                if(okCantidad){
+                    mCantidad = binding.etcanti.text.toString().toInt()
+                    println(mCantidad)
                     clickCarritoItem.OnUpdateAmount(mCantidad,idCarrito)
 
-                }else{
-                    AppMensaje.enviarMensaje(binding.root,
-                        "Cantidad ingresar es invalido", TipoMensaje.ERROR)
-                }
             }
 
             holder.binding.btneliminar.setOnClickListener{

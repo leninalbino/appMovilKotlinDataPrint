@@ -28,7 +28,8 @@ class CarritoActivity : AppCompatActivity(), OnclickCarritoItem {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCarritoBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+                            setContentView(binding.root)
+
         binding.rvlistacarrito.layoutManager = LinearLayoutManager(this)
 
         // <- (flechita) para regresar al home
@@ -58,9 +59,9 @@ class CarritoActivity : AppCompatActivity(), OnclickCarritoItem {
             it.forEach{
                 mTotal += it.caracteristica.precioCaract
             }
-
             binding.tvtotal.text= String.format("%.2f",mTotal).toString()
-            println("Totallll"+mTotal)
+
+
         })
 
     }

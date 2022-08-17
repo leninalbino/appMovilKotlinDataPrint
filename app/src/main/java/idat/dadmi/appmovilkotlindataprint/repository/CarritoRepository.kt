@@ -69,6 +69,8 @@ class CarritoRepository {
                 }
 
                 override fun onFailure(call: Call<ResponseAgregarCarrito>, t: Throwable) {
+
+                    println("ingreso aquiiiiiiiiiiiii")
                     Log.e("ErrorUpdateAmountItem", t.message.toString())
                 }
             })
