@@ -19,8 +19,8 @@
     <color name="snackbaradvertencia">#165497</color>
 
     // color de fondo del detalle
-    <color name="colorFondoDetalle">#0AF6F6</color>
-    <color name="colorFondoDetalle2">#E7ECEC</color>
+    <color name="colorFondoDetalle">#9933CC</color>
+    <color name="colorFondoDetalle2">#9999FF</color>
 
     <color name="colorBotonPagar">#0AF4BB</color>//color boton pagar
 </resources>
