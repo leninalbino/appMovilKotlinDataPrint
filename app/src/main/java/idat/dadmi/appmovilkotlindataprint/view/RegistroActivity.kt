@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Patterns
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.util.PatternsCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import idat.dadmi.appmovilkotlindataprint.R
@@ -81,35 +82,56 @@ class RegistroActivity : AppCompatActivity() , View.OnClickListener{
     private fun validadFormulario(): Boolean {
         var respuesta = true
         var mensaje = ""
-        when{
-            binding.etnomusuario.text.toString().trim().isEmpty() ->{
+        val email = binding.etemailusuario.text.toString()
+        val celular = binding.etcelusuario.text
+        var dni = binding.etusudni.text
+        when {
+            binding.etnomusuario.text.toString().trim().isEmpty() -> {
                 binding.etnomusuario.isFocusableInTouchMode = true
                 binding.etnomusuario.requestFocus()
                 mensaje = "Ingrese su nombre"
                 respuesta = false
             }
-            binding.etapeusuario.text.toString().trim().isEmpty() ->{
+            binding.etapeusuario.text.toString().trim().isEmpty() -> {
                 binding.etapeusuario.isFocusableInTouchMode = true
                 binding.etapeusuario.requestFocus()
                 mensaje = "Ingrese su apellido"
                 respuesta = false
             }
-            binding.etemailusuario.text.toString().trim().isEmpty() ->{
-                binding.etemailusuario.isFocusableInTouchMode = true
-                binding.etemailusuario.requestFocus()
-                mensaje = "Ingrese su email"
+            dni.toString().trim().isEmpty() -> {
+                binding.etusudni.isFocusableInTouchMode = true
+                binding.etusudni.requestFocus()
+                mensaje = "Ingrese su DNI"
                 respuesta = false
             }
-            binding.etcelusuario.text.toString().trim().isEmpty() ->{
+            dni.toString().length <= 7->{
+                binding.etusudni.isFocusableInTouchMode = true
+                binding.etusudni.requestFocus()
+                mensaje = "Numero  DNI incorrecto"
+                respuesta = false
+            }
+            celular.toString().trim().isEmpty() -> {
                 binding.etcelusuario.isFocusableInTouchMode = true
                 binding.etcelusuario.requestFocus()
                 mensaje = "Ingrese su celular"
                 respuesta = false
             }
-            binding.etusudni.text.toString().trim().isEmpty() ->{
-                binding.etusudni.isFocusableInTouchMode = true
-                binding.etusudni.requestFocus()
-                mensaje = "Ingrese su DNI"
+            celular.toString().length <= 8->{
+                binding.etcelusuario.isFocusableInTouchMode = true
+                binding.etcelusuario.requestFocus()
+                mensaje = "Numero de Celular incorrecto"
+                respuesta = false
+            }
+            email.trim().isEmpty() -> {
+                    binding.etemailusuario.isFocusableInTouchMode = true
+                    binding.etemailusuario.requestFocus()
+                    mensaje = "Ingrese su email"
+                    respuesta = false
+                }
+            !PatternsCompat.EMAIL_ADDRESS.matcher(email).matches() ->{
+                binding.etemailusuario.isFocusableInTouchMode = true
+                binding.etemailusuario.requestFocus()
+                mensaje = "Su email debe ser valido"
                 respuesta = false
             }
             binding.etpassreg.text.toString().trim().isEmpty() ->{
@@ -147,4 +169,6 @@ class RegistroActivity : AppCompatActivity() , View.OnClickListener{
         binding.etpassreg.setText("")
         binding.etdireccion.setText("")
     }
+
+
 }

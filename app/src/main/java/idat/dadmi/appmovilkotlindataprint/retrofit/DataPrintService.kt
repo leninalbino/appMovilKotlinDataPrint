@@ -14,9 +14,9 @@ interface DataPrintService {
 
     //@GET("/")
     //fun listarCategorias (): Call<List<ResponseCategoria>>
-    //@FormUrlEncoded
-    //@Headers("Acept:aplication/json")
+
     @POST("/rest/v1/usuarios/crearToken")
+    //@Headers("No-Authentication: true")
     fun login (@Body requestLogin: RequestLogin):Call<ResponseLogin>
 
     @POST("/registrar")
@@ -28,5 +28,22 @@ interface DataPrintService {
     //buscar producto por id para mostrar el detalle
     @GET("/p/{id}")
     fun findProductDetailById(@Path(value = "id") id:Int): Call<ResponseProductos>
+
+    @POST("/rest/v1/carrito/agregarCarrito?)")
+    fun agregarCarrito(@Query("caracteristica_id")caracteristica_id:Long,
+                        @Query("cantidad")cantidad:Int):Call<ResponseAgregarCarrito>
+
+    @GET("/rest/v1/carrito/")
+    fun listarCarrito():Call<List<ResponseListaCarrito>>
+
+    @PUT("/rest/v1/carrito/actualizarItemCarrito/{cantidad}/{idcarrito}")
+    fun actualizarCarrito(@Path(value = "cantidad") cantidad: Int,
+                          @Path(value="idcarrito") idcarrito:Long): Call<ResponseAgregarCarrito>
+
+    @DELETE("/rest/v1/carrito/eliminarItemCarrito/{id}")
+    fun  eliminarItemCarrito(@Path(value="id") id:Long):Call<ResponseAgregarCarrito>
+
+    @POST("/rest/v1/ventas/create")
+    fun pagarVenta():Call<ResponseVentas>
 
 }

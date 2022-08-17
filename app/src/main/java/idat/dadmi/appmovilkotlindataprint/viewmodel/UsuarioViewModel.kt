@@ -33,4 +33,5 @@ class UsuarioViewModel(application: Application):AndroidViewModel(application) {
     fun obtener():LiveData<UsuarioEntity>{
         return repository.obtener()
     }
+
 }

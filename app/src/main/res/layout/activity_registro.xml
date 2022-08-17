@@ -41,7 +41,9 @@
                 android:id="@+id/etnomusuario"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:maxLength="25" />
+                android:maxLength="25"
+                android:inputType="text"
+                android:digits="abcdefghijklmnopqrstuvwxyzñ"/>
         </com.google.android.material.textfield.TextInputLayout>
 
                     // Apellido del Usuario
@@ -61,7 +63,10 @@
                 android:id="@+id/etapeusuario"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:maxLength="25" />
+                android:maxLength="25"
+                android:inputType="text"
+                android:digits="abcdefghijklmnopqrstuvwxyzñ"
+                />
         </com.google.android.material.textfield.TextInputLayout>
 
                 //Usuario DNI
@@ -104,7 +109,7 @@
                 android:inputType="number"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:maxLength="10" />
+                android:maxLength="9" />
         </com.google.android.material.textfield.TextInputLayout>
 
         //Email del Usuario
@@ -123,7 +128,9 @@
                 android:hint="@string/valetemailusuario"
                 android:id="@+id/etemailusuario"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent"/>
+                android:layout_width="match_parent"
+                android:inputType="textEmailAddress"
+                />
         </com.google.android.material.textfield.TextInputLayout>
 
                         // Password Usuario

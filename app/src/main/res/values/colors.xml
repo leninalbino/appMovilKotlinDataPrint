@@ -21,4 +21,6 @@
     // color de fondo del detalle
     <color name="colorFondoDetalle">#0AF6F6</color>
     <color name="colorFondoDetalle2">#E7ECEC</color>
+
+    <color name="colorBotonPagar">#0AF4BB</color>//color boton pagar
 </resources>

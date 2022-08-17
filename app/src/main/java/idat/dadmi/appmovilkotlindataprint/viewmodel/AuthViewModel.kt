@@ -24,9 +24,7 @@ class AuthViewModel:ViewModel() {
             RequestLogin(usuario,password)
         )
     }
-    suspend fun saveAuthToken(token:String){
-       // responseLogin.saveAuthToken("Bearer $token")
-    }
+
 
     fun registrarUsuario( nombre:String,
                           apellido:String,

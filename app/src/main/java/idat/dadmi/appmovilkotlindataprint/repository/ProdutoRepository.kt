@@ -12,7 +12,7 @@ class ProdutoRepository {
     var responseProducto= MutableLiveData<List<ResponseProductos>>()
 
     fun listarProductos() :MutableLiveData<List<ResponseProductos>> {
-        val call: Call<List<ResponseProductos>> = DataPrintCliente
+        val call: Call<List<ResponseProductos>> = DataPrintCliente("")
             .retrofitService.listarProductos()
         call.enqueue(object : Callback<List<ResponseProductos>> {
             override fun onResponse
