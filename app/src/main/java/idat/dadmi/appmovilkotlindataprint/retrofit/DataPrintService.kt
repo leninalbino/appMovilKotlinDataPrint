@@ -12,8 +12,8 @@ interface DataPrintService {
     @GET("/")
     fun listarProductos (): Call<List<ResponseProductos>>
 
-    //@GET("/")
-    //fun listarCategorias (): Call<List<ResponseCategoria>>
+    @GET("/listaCategoria")
+    fun listarCategoria (): Call<List<Categoria>>
 
     @POST("/rest/v1/usuarios/crearToken")
     //@Headers("No-Authentication: true")
