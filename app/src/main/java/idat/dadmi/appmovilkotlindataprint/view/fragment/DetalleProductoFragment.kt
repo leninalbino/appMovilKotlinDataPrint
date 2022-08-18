@@ -141,7 +141,6 @@ class DetalleProductoFragment : Fragment(R.layout.fragment_detalle_producto),Vie
         var okCantidad=true
         if(Metodos.obtenerToken() != ""){
 
-
             if (binding.etcantidad.text.toString().trim().isEmpty()){
                 binding.etcantidad.isFocusableInTouchMode = true
                 binding.etcantidad.requestFocus()

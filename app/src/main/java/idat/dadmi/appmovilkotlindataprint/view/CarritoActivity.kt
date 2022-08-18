@@ -1,5 +1,6 @@
 package idat.dadmi.appmovilkotlindataprint.view
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import idat.dadmi.appmovilkotlindataprint.R
 import idat.dadmi.appmovilkotlindataprint.databinding.ActivityCarritoBinding
 import idat.dadmi.appmovilkotlindataprint.retrofit.response.ResponseAgregarCarrito
+import idat.dadmi.appmovilkotlindataprint.retrofit.response.ResponseListaCarrito
 import idat.dadmi.appmovilkotlindataprint.utilitarios.AppMensaje
 import idat.dadmi.appmovilkotlindataprint.utilitarios.TipoMensaje
 import idat.dadmi.appmovilkotlindataprint.view.adapter.CarritoAdapter
@@ -47,21 +49,33 @@ class CarritoActivity : AppCompatActivity(), OnclickCarritoItem {
     }
 
     private fun obtenerRespuestaMensaje(it: ResponseAgregarCarrito) {
-        AppMensaje.enviarMensaje(binding.root,
-           ""+ it.mensaje, TipoMensaje.EXITO)
+        AppMensaje.enviarMensaje(binding.root, it.mensaje, TipoMensaje.EXITO)
     }
 
     private fun listarItemsCarrito(){
+        var lista:ResponseListaCarrito
         carritoViewModel.ListItemCart().observe(this, Observer{
             binding.rvlistacarrito.adapter = CarritoAdapter(this@CarritoActivity,it)
             println("lista del carrito"+it)
+            lista= it.get(0)
+            println("-----------"+lista)
             var mTotal :Double =0.0
+            var mCantidad:Int=0
             it.forEach{
+
                 mTotal += it.caracteristica.precioCaract
+                println(it)
+
             }
+            println(mTotal)
             binding.tvtotal.text= String.format("%.2f",mTotal).toString()
 
+            binding.btnpagar.setOnClickListener {
 
+                val intent =  Intent(this, CheckoutActivity::class.java)
+                intent.putExtra("LISTA",lista.toString())
+                startActivity(intent)
+            }
         })
 
     }
@@ -71,7 +85,10 @@ class CarritoActivity : AppCompatActivity(), OnclickCarritoItem {
     }
 
     override fun OnUpdateAmount(cantidad: Int, id: Long) {
-        carritoViewModel.updateAmountItem(cantidad, id)
+        if(cantidad >0 || cantidad !=null){
+            carritoViewModel.updateAmountItem(cantidad, id)
+        }
+
     }
 
 }
