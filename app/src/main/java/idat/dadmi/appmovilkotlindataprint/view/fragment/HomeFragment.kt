@@ -29,9 +29,12 @@ class HomeFragment : Fragment(){
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding=FragmentHomeBinding.inflate(inflater,container,false)
+        _binding=FragmentHomeBinding.inflate(inflater,
+                                                container,false)
+
         binding.rvproducto.layoutManager = LinearLayoutManager(
-            requireActivity())
+                                                    requireActivity())
+
         productoviewModel = ViewModelProvider(requireActivity()).get(ProductosViewModel::class.java)
         listarProductos()
 

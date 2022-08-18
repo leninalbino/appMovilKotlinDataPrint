@@ -23,7 +23,7 @@ class ListaCategoriaRepository {
             }
 
             override fun onFailure(call: Call<List<Categoria>>, t: Throwable) {
-                Log.e("ErrorListaCategori", t.message.toString())
+                Log.e("ErrorListaCategoria", t.message.toString())
             }
         })
         return responselistacategoria

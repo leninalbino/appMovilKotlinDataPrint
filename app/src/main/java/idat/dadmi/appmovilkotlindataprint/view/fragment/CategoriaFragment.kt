@@ -14,30 +14,43 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import idat.dadmi.appmovilkotlindataprint.R
 import idat.dadmi.appmovilkotlindataprint.databinding.FragmentCategoriaBinding
 import idat.dadmi.appmovilkotlindataprint.databinding.FragmentHomeBinding
+import idat.dadmi.appmovilkotlindataprint.view.adapter.CategoriaAdapter
 import idat.dadmi.appmovilkotlindataprint.viewmodel.ListaCategoriaViewModel
 import idat.dadmi.appmovilkotlindataprint.viewmodel.ProductosViewModel
 
 class CategoriaFragment : Fragment() {
     private var _binding: FragmentCategoriaBinding? = null
-    private val binding get() =_binding!!
-    private lateinit var listaCategoriaviewModel:ListaCategoriaViewModel
+    private val binding get() = _binding!!
+    private lateinit var listaCategoriaviewModel: ListaCategoriaViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-            _binding=ListaCategoriaViewModel.inflate(inflater,container,false)
-        binding.rvcategoria.layoutManager= LinearLayoutManager(
-            requireActivity())
-        listaCategoriaviewModel= ViewModelProvider(requireActivity()).get(ListaCategoriaViewModel::class.java)
+        _binding = FragmentCategoriaBinding.inflate(
+            inflater, container, false
+        )
+        binding.rvcategoria.layoutManager = LinearLayoutManager(
+            requireActivity()
+        )
+
+        listaCategoriaviewModel =
+            ViewModelProvider(requireActivity()).get(ListaCategoriaViewModel::class.java)
+
         listarCategorias()
         return binding.root
-       // return inflater.inflate(R.layout.fragment_categoria, container, false)
+        // return inflater.inflate(R.layout.fragment_categoria, container, false)
     }
 
     private fun listarCategorias() {
         listaCategoriaviewModel.listarCategoria().observe(viewLifecycleOwner,
             Observer {
-                binding.rvcategoria.adapter
-            }
+                binding.rvcategoria.adapter = CategoriaAdapter(it)
+            })
+    }
+
 }

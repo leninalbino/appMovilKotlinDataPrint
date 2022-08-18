@@ -3,23 +3,35 @@ package idat.dadmi.appmovilkotlindataprint.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Parcelable
 import android.view.View
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import com.google.gson.Gson
 import idat.dadmi.appmovilkotlindataprint.R
 import idat.dadmi.appmovilkotlindataprint.databinding.ActivityCheckoutBinding
+import idat.dadmi.appmovilkotlindataprint.retrofit.response.ResponseListaCarrito
+import idat.dadmi.appmovilkotlindataprint.retrofit.response.Usuario
+import idat.dadmi.appmovilkotlindataprint.viewmodel.CarritoViewModel
 
 class CheckoutActivity : AppCompatActivity(),View.OnClickListener {
 
     private lateinit var binding: ActivityCheckoutBinding
-
+    private lateinit var usuario: Usuario
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_checkout)
+
         binding = ActivityCheckoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val bundle = intent.extras
-        val responseListaCarrito = bundle?.getString("LISTA")
-        println("checkout "+ responseListaCarrito)
+            intent?.let {
+                bundle ->
+                usuario = bundle.getParcelableExtra("usuario")!!
+            }
+          // val usuario = intent.getParcelableExtra<Parcelable?>("usuario") as Usuario
+            //println(usuario.apellido.toString())
+            //val obj: Any? = intent.extras?.get("usuario")
+            println(usuario.apellido)
 
         binding.btnpagocontraentrega.setOnClickListener(this)
         binding.ibtnpagoyape.setOnClickListener(this)

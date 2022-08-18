@@ -49,7 +49,7 @@ class ProductoAdapter(private var lstproducto: List<ResponseProductos>)
 
             val idProductoPro = lstproducto[position].idProductoPro
             val imageProp  = lstproducto[position].imageProp
-            nombreCate = Categoria(lstproducto[position].categoria.nombreCate)
+                nombreCate = Categoria(lstproducto[position].categoria.nombreCate)
             val nombrePro = holder.binding.tvnomproducto.text.toString()
 
             //Agregar las cararacteristicas a la variable descriCaract
@@ -68,7 +68,6 @@ class ProductoAdapter(private var lstproducto: List<ResponseProductos>)
                 descriCaract,
 
             )
-
             val bundle = bundleOf("producto" to producto)
             view.findNavController().navigate(R.id.detalleProductoFragment,bundle)
         }

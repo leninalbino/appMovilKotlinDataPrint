@@ -11,7 +11,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="152dp"
-        android:background="#FF6633">
+        android:background="#BDBDBD">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/ivproducto"

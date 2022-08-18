@@ -1,31 +1,29 @@
 package idat.dadmi.appmovilkotlindataprint.view
 
-import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
-import androidx.lifecycle.LifecycleOwner
+import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.google.gson.Gson
 import idat.dadmi.appmovilkotlindataprint.R
 import idat.dadmi.appmovilkotlindataprint.databinding.ActivityCarritoBinding
+import idat.dadmi.appmovilkotlindataprint.retrofit.model.Usuario
 import idat.dadmi.appmovilkotlindataprint.retrofit.response.ResponseAgregarCarrito
-import idat.dadmi.appmovilkotlindataprint.retrofit.response.ResponseListaCarrito
 import idat.dadmi.appmovilkotlindataprint.utilitarios.AppMensaje
 import idat.dadmi.appmovilkotlindataprint.utilitarios.TipoMensaje
 import idat.dadmi.appmovilkotlindataprint.view.adapter.CarritoAdapter
 import idat.dadmi.appmovilkotlindataprint.view.adapter.OnclickCarritoItem
 import idat.dadmi.appmovilkotlindataprint.viewmodel.CarritoViewModel
+import java.io.Serializable
 
 class CarritoActivity : AppCompatActivity(), OnclickCarritoItem {
 
     private lateinit var binding: ActivityCarritoBinding
     private lateinit var carritoViewModel: CarritoViewModel
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,27 +51,43 @@ class CarritoActivity : AppCompatActivity(), OnclickCarritoItem {
     }
 
     private fun listarItemsCarrito(){
-        var lista:ResponseListaCarrito
+
         carritoViewModel.ListItemCart().observe(this, Observer{
             binding.rvlistacarrito.adapter = CarritoAdapter(this@CarritoActivity,it)
-            println("lista del carrito"+it)
-            lista= it.get(0)
-            println("-----------"+lista)
+
+            var lista = it
             var mTotal :Double =0.0
             var mCantidad:Int=0
-            it.forEach{
-
+            it.forEach{it ->
                 mTotal += it.caracteristica.precioCaract
-                println(it)
 
             }
-            println(mTotal)
             binding.tvtotal.text= String.format("%.2f",mTotal).toString()
 
+            var idusuario=  it[0].usuario.idusuarios
+            var nombre= it[0].usuario.nombre
+            var apellido=it[0].usuario.apellido
+            var dni=it[0].usuario.dni
+            var telefono=it[0].usuario.telefono
+            var direccion=it[0].usuario.direcc
+            var correo=it[0].usuario.correo
+            println("oooooooo"+correo)
+
+            val usuario= Usuario(
+                idusuario,
+                nombre.toString(),
+                apellido.toString(),
+                dni.toString(),
+                telefono.toString(),
+                direccion.toString(),
+                correo
+            )
+                     println("usuariooooo "+usuario)
             binding.btnpagar.setOnClickListener {
+                val bundle = bundleOf("usuario" to usuario)
 
                 val intent =  Intent(this, CheckoutActivity::class.java)
-                intent.putExtra("LISTA",lista.toString())
+                intent.putExtra("usuario",bundle)
                 startActivity(intent)
             }
         })
