@@ -7,5 +7,5 @@ class Constantes {
     //val Data_Print_URL =  "http://192.168.18.4:8086"
     //val Data_Print_URL =  "http://192.168.1.2:8086"
     val PREF_RECORDAR = "PREF_RECORDAR"
-    val PREF_TOKEN = "PREF_TOKEN"
+    var PREF_TOKEN = "PREF_TOKEN"
 }

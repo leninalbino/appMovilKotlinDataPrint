@@ -24,6 +24,8 @@ import idat.dadmi.appmovilkotlindataprint.CaracterizticasActivity
 import idat.dadmi.appmovilkotlindataprint.R
 import idat.dadmi.appmovilkotlindataprint.databinding.ActivityMainBinding
 import idat.dadmi.appmovilkotlindataprint.utilitarios.Constantes
+import idat.dadmi.appmovilkotlindataprint.utilitarios.Metodos
+import idat.dadmi.appmovilkotlindataprint.utilitarios.SharedPreferencesManager
 import idat.dadmi.appmovilkotlindataprint.viewmodel.UsuarioViewModel
 import kotlin.math.sign
 
@@ -93,10 +95,10 @@ class MainActivity : AppCompatActivity() {
 
         val idItem=item.itemId
 
-
         if (idItem == R.id.actio_logout){
             startActivity(Intent(this,LoginActivity::class.java))
             usuarioViewModel.eliminartodo()
+            SharedPreferencesManager().setSomeStringValue(Constantes().PREF_TOKEN,"")
             finish()
 
         }

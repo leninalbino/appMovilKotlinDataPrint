@@ -13,6 +13,7 @@ import idat.dadmi.appmovilkotlindataprint.databinding.ActivityCheckoutBinding
 import idat.dadmi.appmovilkotlindataprint.retrofit.response.ResponseListaCarrito
 import idat.dadmi.appmovilkotlindataprint.retrofit.response.Usuario
 import idat.dadmi.appmovilkotlindataprint.viewmodel.CarritoViewModel
+import kotlinx.parcelize.Parcelize
 
 class CheckoutActivity : AppCompatActivity(),View.OnClickListener {
 
@@ -24,14 +25,18 @@ class CheckoutActivity : AppCompatActivity(),View.OnClickListener {
         binding = ActivityCheckoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-            intent?.let {
-                bundle ->
-                usuario = bundle.getParcelableExtra("usuario")!!
-            }
+            //intent?.let {
+              //  bundle ->
+              //  usuario = bundle.getParcelableExtra("usuario")!!
+            //}
           // val usuario = intent.getParcelableExtra<Parcelable?>("usuario") as Usuario
             //println(usuario.apellido.toString())
             //val obj: Any? = intent.extras?.get("usuario")
-            println(usuario.apellido)
+
+
+         //usuario = intent.getParcelableExtra<Parcelable>("usaurio") as Usuario
+
+          // println(usuario.apellido)
 
         binding.btnpagocontraentrega.setOnClickListener(this)
         binding.ibtnpagoyape.setOnClickListener(this)
