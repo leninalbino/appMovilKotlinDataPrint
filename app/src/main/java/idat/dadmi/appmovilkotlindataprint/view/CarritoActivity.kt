@@ -71,7 +71,6 @@ class CarritoActivity : AppCompatActivity(), OnclickCarritoItem {
             var telefono=it[0].usuario.telefono
             var direccion=it[0].usuario.direcc
             var correo=it[0].usuario.correo
-            println("oooooooo"+correo)
 
             val usuario= Usuario(
                 idusuario,
@@ -83,13 +82,9 @@ class CarritoActivity : AppCompatActivity(), OnclickCarritoItem {
                 correo
             )
             binding.btnpagar.setOnClickListener {
-                //val b = Bundle()
-               // b.putParcelable("usuario" ,usuario )
-                val intent =  Intent(this, CheckoutActivity::class.java)
 
-                //intent.putExtra("usuario",b)
+                val intent =  Intent(this, CheckoutActivity::class.java)
                 startActivity(intent)
-                //println(bundle)
 
             }
         })
