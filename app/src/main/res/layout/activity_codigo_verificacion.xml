@@ -20,7 +20,7 @@
             android:layout_height="450dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            app:srcCompat="@drawable/img" />
+            app:srcCompat="@drawable/paypal" />
 
         <ImageView
             android:id="@+id/imageView7"

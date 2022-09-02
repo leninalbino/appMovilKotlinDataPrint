@@ -15,7 +15,7 @@ class CarritoRepository {
     var listarCarrritoResponse = MutableLiveData<List<ResponseListaCarrito>>()
 
     fun addItem(caracteristica_id:Long,  cantidad:Int):MutableLiveData<ResponseAgregarCarrito>{
-        if (Metodos.obtenerToken() != null){
+        if (Metodos.obtenerToken() != ""){
             val call:Call<ResponseAgregarCarrito> = DataPrintCliente(Metodos.obtenerToken()!!)
                 .retrofitService.agregarCarrito(caracteristica_id,cantidad)
             call.enqueue(object  : Callback<ResponseAgregarCarrito>{
@@ -57,20 +57,24 @@ class CarritoRepository {
     }
 
     fun updateAmountItem(cantidad:Int, idCarrito:Long):MutableLiveData<ResponseAgregarCarrito>{
-        val call:Call<ResponseAgregarCarrito> = DataPrintCliente(Metodos.obtenerToken()!!)
-            .retrofitService.actualizarCarrito(cantidad,idCarrito)
-        call.enqueue(object  : Callback<ResponseAgregarCarrito>{
-            override fun onResponse(
-                call: Call<ResponseAgregarCarrito>,
-                response: Response<ResponseAgregarCarrito>
-            ) {
-                agregarCarritoResponse.value = response.body()
-            }
+        if(Metodos.obtenerToken() != "") {
+            val call: Call<ResponseAgregarCarrito> = DataPrintCliente(Metodos.obtenerToken()!!)
+                .retrofitService.actualizarCarrito(cantidad, idCarrito)
+            call.enqueue(object : Callback<ResponseAgregarCarrito> {
+                override fun onResponse(
+                    call: Call<ResponseAgregarCarrito>,
+                    response: Response<ResponseAgregarCarrito>
+                ) {
+                    agregarCarritoResponse.value = response.body()
+                }
 
-            override fun onFailure(call: Call<ResponseAgregarCarrito>, t: Throwable) {
-                Log.e("ErrorUpdateAmountItem", t.message.toString())
-            }
-        })
+                override fun onFailure(call: Call<ResponseAgregarCarrito>, t: Throwable) {
+
+                    println("ingreso aquiiiiiiiiiiiii")
+                    Log.e("ErrorUpdateAmountItem", t.message.toString())
+                }
+            })
+        }
         return agregarCarritoResponse
     }
 

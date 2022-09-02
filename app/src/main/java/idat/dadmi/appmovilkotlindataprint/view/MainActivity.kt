@@ -24,6 +24,8 @@ import idat.dadmi.appmovilkotlindataprint.CaracterizticasActivity
 import idat.dadmi.appmovilkotlindataprint.R
 import idat.dadmi.appmovilkotlindataprint.databinding.ActivityMainBinding
 import idat.dadmi.appmovilkotlindataprint.utilitarios.Constantes
+import idat.dadmi.appmovilkotlindataprint.utilitarios.Metodos
+import idat.dadmi.appmovilkotlindataprint.utilitarios.SharedPreferencesManager
 import idat.dadmi.appmovilkotlindataprint.viewmodel.UsuarioViewModel
 import kotlin.math.sign
 
@@ -69,7 +71,9 @@ class MainActivity : AppCompatActivity() {
         mostrarInformacionAuth()
     }
 
+    // metodo para setear informacion de la persona logeada
     private fun mostrarInformacionAuth() {
+
         val tvnomusuario : TextView = binding.navView.getHeaderView(0)
             .findViewById(R.id.tvnombreusuario)
         val tvemailusuario: TextView = binding.navView.getHeaderView(0)
@@ -86,17 +90,41 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
+
+        // añadimos en una variable el token que esta guardado en una constante
+        val share= SharedPreferencesManager().getSomeStringValue(Constantes().PREF_TOKEN)
+
+        // validamos si el token existe para mostrar o ocultar items del menu
+        if (validarToken(share.toString())){
+            //menu.findItem(R.id.actio_logout).setEnabled(false)
+            menu.findItem(R.id.actio_logout).setVisible(true)
+            menu.findItem(R.id.action_login).setVisible(false)
+        }else{
+            menu.findItem(R.id.action_login).setVisible(true)
+            menu.findItem(R.id.actio_logout).setVisible(false)
+        }
+
         return true
     }
+
+    // metodo donde retorna true si existe o false si no
+    fun validarToken(token:String):Boolean{
+        if(token == ""){
+            return false
+        }
+
+        return true
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
 
         val idItem=item.itemId
 
-
         if (idItem == R.id.actio_logout){
             startActivity(Intent(this,LoginActivity::class.java))
             usuarioViewModel.eliminartodo()
+            SharedPreferencesManager().setSomeStringValue(Constantes().PREF_TOKEN,"")
             finish()
 
         }
